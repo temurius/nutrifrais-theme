@@ -1,0 +1,80 @@
+/*
+Theme Name: Nutrifrais
+Theme URI: https://example.local/nutrifrais
+Author: Nutrifrais Team
+Description: Modern, wellness-focused, WooCommerce-ready WordPress theme for bio meals, healthy plans, and AI-based nutrition.
+Version: 1.0.0
+Text Domain: nutrifrais
+License: GPL-2.0-or-later
+Tags: e-commerce, wooCommerce, blog, responsive, accessibility-ready, nutrition, health
+*/
+
+:root {
+  --nf-green: #2dbf7a;
+  --nf-green-dark: #189b5f;
+  --nf-leaf: #9be4c3;
+  --nf-cream: #faf9f6;
+  --nf-slate: #24323f;
+  --nf-muted: #6b7a88;
+  --nf-danger: #e15e5e;
+  --nf-warning: #f0b429;
+  --nf-radius: 12px;
+  --nf-shadow: 0 6px 24px rgba(0,0,0,0.08);
+}
+
+html { box-sizing: border-box; }
+*, *:before, *:after { box-sizing: inherit; }
+body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Noto Sans, sans-serif; color: var(--nf-slate); background: var(--nf-cream); line-height:1.6; }
+a { color: var(--nf-green-dark); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container { width: min(1200px, 94%); margin: 0 auto; }
+.grid { display: grid; gap: 24px; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.site-header { position: sticky; top: 0; z-index: 20; background: #fff; box-shadow: var(--nf-shadow); }
+.site-header .bar { display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
+.site-brand { display:flex; align-items:center; gap:10px; font-weight:700; font-size:20px; }
+.site-brand .logo { width:34px; height:34px; border-radius:8px; background: linear-gradient(135deg, var(--nf-green), var(--nf-leaf)); display:inline-flex; align-items:center; justify-content:center; color:#fff; font-weight:800; }
+.primary-nav { display:flex; gap:18px; align-items:center; }
+.primary-nav a { font-weight:600; color: var(--nf-slate); }
+.primary-nav .cta { background: var(--nf-green); color:#fff; padding:10px 14px; border-radius:10px; box-shadow: var(--nf-shadow); }
+.primary-nav .cta:hover { background: var(--nf-green-dark); text-decoration:none; }
+.cart-badge { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:10px; background:#f4f7f9; color:var(--nf-slate); }
+.cart-badge .count { background: var(--nf-green); color:#fff; padding:2px 8px; border-radius:999px; font-size:12px; }
+
+.hero { background: radial-gradient(1200px 600px at 20% -10%, var(--nf-leaf), transparent), radial-gradient(1000px 500px at 120% 20%, #d2f7e8, transparent), #ffffff; padding:64px 0 36px; }
+.hero h1 { font-size: clamp(28px, 4vw, 46px); line-height:1.15; margin:0 0 10px; }
+.hero p { color: var(--nf-muted); font-size:18px; max-width: 720px; }
+.hero .actions { display:flex; gap:12px; margin-top:18px; }
+.btn { display:inline-block; padding:12px 16px; border-radius:12px; font-weight:700; }
+.btn-primary { background: var(--nf-green); color:#fff; }
+.btn-primary:hover { background: var(--nf-green-dark); text-decoration:none; }
+.btn-secondary { background:#fff; color: var(--nf-slate); border:1px solid #e6ecf1; }
+
+.card { background:#fff; border:1px solid #eef2f5; border-radius: var(--nf-radius); box-shadow: var(--nf-shadow); overflow:hidden; }
+.card .pad { padding: 16px; }
+.badge { display:inline-block; padding:4px 10px; font-size:12px; border-radius:999px; background:#eef8f3; color: var(--nf-green-dark); font-weight:700; }
+
+.products .product { background:#fff; border:1px solid #eef2f5; border-radius:14px; overflow:hidden; box-shadow: var(--nf-shadow); }
+.woocommerce .button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button { background: var(--nf-green); color:#fff; border-radius:10px; padding:10px 14px; }
+.woocommerce .button:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover { background: var(--nf-green-dark); }
+.woocommerce-message { border-top-color: var(--nf-green); }
+
+.site-footer { background:#0f1b24; color:#d7dde3; padding: 40px 0; margin-top: 40px; }
+.site-footer a { color:#fff; }
+.footer-widgets { display:grid; gap:24px; grid-template-columns: repeat(4, 1fr); }
+.subfooter { border-top:1px solid rgba(255,255,255,0.08); margin-top:24px; padding-top:16px; font-size:14px; color:#9fb0bf; display:flex; justify-content:space-between; }
+
+@media (max-width: 900px) {
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+  .grid-4 { grid-template-columns: 1fr 1fr; }
+  .footer-widgets { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .site-header .bar { flex-wrap: wrap; gap: 10px; }
+}
+
