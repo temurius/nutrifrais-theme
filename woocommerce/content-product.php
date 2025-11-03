@@ -9,13 +9,13 @@ global $product;
 if ( empty( $product ) || ! $product->is_visible() ) { return; }
 
 ?>
-<li <?php wc_product_class( 'product', $product ); ?>>
-  <a href="<?php the_permalink(); ?>" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+<li <?php wc_product_class( 'product group transition-all hover:shadow-lg', $product ); ?> style="list-style:none;">
+  <a href="<?php the_permalink(); ?>" class="woocommerce-LoopProduct-link woocommerce-loop-product__link block">
     <?php echo woocommerce_get_product_thumbnail( 'nf-card' ); ?>
-    <h2 class="woocommerce-loop-product__title"><?php the_title(); ?></h2>
+    <h2 class="woocommerce-loop-product__title px-3 pt-2 text-slate-800 group-hover:text-[var(--nf-green,#2dbf7a)] transition-colors"><?php the_title(); ?></h2>
   </a>
   <div class="pad">
-    <div class="price"><?php echo $product->get_price_html(); ?></div>
+    <div class="price font-bold text-[var(--nf-green,#2dbf7a)]"><?php echo $product->get_price_html(); ?></div>
     <div class="nf-meta" style="font-size:12px;color:#6b7a88;display:flex;gap:10px;flex-wrap:wrap;">
       <?php
         $diet = get_the_terms( get_the_ID(), 'nf_diet' );
@@ -35,4 +35,3 @@ if ( empty( $product ) || ! $product->is_visible() ) { return; }
     <?php woocommerce_template_loop_add_to_cart(); ?>
   </div>
 </li>
-

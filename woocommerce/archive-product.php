@@ -8,16 +8,17 @@ defined( 'ABSPATH' ) || exit;
 
 get_header( 'shop' ); ?>
 
-<header class="hero card" style="margin:20px 0;">
-  <div class="pad">
-    <h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
-    <p><?php esc_html_e( 'Filter by diet, meal type, and calories.', 'nutrifrais' ); ?></p>
-  </div>
-</header>
+<div class="max-w-screen-xl mx-auto px-4">
+  <header class="card mt-5 mb-5">
+    <div class="pad">
+      <h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
+      <p><?php esc_html_e( 'Filter by diet, meal type, and calories.', 'nutrifrais' ); ?></p>
+    </div>
+  </header>
 
-<?php echo do_shortcode('[nutrifrais_filters]'); ?>
+  <?php echo do_shortcode('[nutrifrais_filters]'); ?>
 
-<?php
+  <?php
 if ( woocommerce_product_loop() ) {
   do_action( 'woocommerce_before_shop_loop' );
   woocommerce_product_loop_start();
@@ -33,6 +34,7 @@ if ( woocommerce_product_loop() ) {
 } else {
   do_action( 'woocommerce_no_products_found' );
 }
+  ?>
+</div>
 
 <?php get_footer( 'shop' );
-

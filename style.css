@@ -78,3 +78,16 @@ a:hover { text-decoration: underline; }
   .site-header .bar { flex-wrap: wrap; gap: 10px; }
 }
 
+/* Enhancements: navigation dropdowns and product grid */
+.primary-nav .menu { list-style:none; margin:0; padding:0; }
+.primary-nav .menu > li { position: relative; }
+.primary-nav .menu > li > a { padding: 8px 6px; display:inline-block; border-radius:10px; }
+.primary-nav .menu > li > a:hover { background:#f5f8fb; text-decoration:none; }
+.primary-nav .menu .sub-menu { position:absolute; left:0; top:calc(100% + 10px); background:#fff; border:1px solid #e6ecf1; border-radius:12px; box-shadow: var(--nf-shadow); padding:8px; min-width:200px; display:none; z-index:50; }
+.primary-nav .menu > li:hover > .sub-menu { display:block; }
+.primary-nav .menu .sub-menu li a { display:block; padding:8px 10px; border-radius:8px; }
+.primary-nav .menu .sub-menu li a:hover { background:#f5f8fb; }
+
+.products { display:grid; grid-template-columns: repeat(1, minmax(0,1fr)); gap: 20px; }
+@media (min-width: 640px) { .products { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (min-width: 1024px) { .products { grid-template-columns: repeat(4, minmax(0,1fr)); } }

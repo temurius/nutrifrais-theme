@@ -5,7 +5,7 @@
  */
 get_header(); ?>
 
-<section class="hero card" style="margin:20px 0;">
+<section class="hero card mt-5 mb-5">
   <div class="pad">
     <span class="badge"><?php esc_html_e( 'Bio & Local', 'nutrifrais' ); ?></span>
     <h1><?php esc_html_e( 'Healthy meals and AI nutrition — personalized for you', 'nutrifrais' ); ?></h1>
@@ -17,21 +17,21 @@ get_header(); ?>
   </div>
 </section>
 
-<section style="margin:20px 0;">
-  <h2><?php esc_html_e( 'Popular Meals', 'nutrifrais' ); ?></h2>
+<section class="max-w-screen-xl mx-auto px-4 mb-8">
+  <h2 class="text-2xl font-bold mb-3"><?php esc_html_e( 'Popular Meals', 'nutrifrais' ); ?></h2>
   <?php echo do_shortcode('[products limit="8" columns="4" visibility="featured"]'); ?>
 </section>
 
-<section style="margin:20px 0;">
-  <h2><?php esc_html_e( 'Build Your Plan', 'nutrifrais' ); ?></h2>
-  <div class="grid grid-3">
-    <div class="card"><div class="pad"><h3>3 <?php esc_html_e( 'Days', 'nutrifrais' ); ?></h3><p><?php esc_html_e( 'Quick reset with balanced meals.', 'nutrifrais' ); ?></p><a class="btn btn-primary" href="<?php echo esc_url( site_url('/plans') ); ?>"><?php esc_html_e( 'Choose', 'nutrifrais' ); ?></a></div></div>
-    <div class="card"><div class="pad"><h3>7 <?php esc_html_e( 'Days', 'nutrifrais' ); ?></h3><p><?php esc_html_e( 'One week of mindful eating.', 'nutrifrais' ); ?></p><a class="btn btn-primary" href="<?php echo esc_url( site_url('/plans') ); ?>"><?php esc_html_e( 'Choose', 'nutrifrais' ); ?></a></div></div>
-    <div class="card"><div class="pad"><h3>14 <?php esc_html_e( 'Days', 'nutrifrais' ); ?></h3><p><?php esc_html_e( 'Deeper transformation & habits.', 'nutrifrais' ); ?></p><a class="btn btn-primary" href="<?php echo esc_url( site_url('/plans') ); ?>"><?php esc_html_e( 'Choose', 'nutrifrais' ); ?></a></div></div>
+<section class="max-w-screen-xl mx-auto px-4 mb-8">
+  <h2 class="text-2xl font-bold mb-3"><?php esc_html_e( 'Build Your Plan', 'nutrifrais' ); ?></h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="card"><div class="pad"><h3 class="text-xl font-bold">3 <?php esc_html_e( 'Days', 'nutrifrais' ); ?></h3><p><?php esc_html_e( 'Quick reset with balanced meals.', 'nutrifrais' ); ?></p><a class="btn btn-primary" href="<?php echo esc_url( site_url('/plans') ); ?>"><?php esc_html_e( 'Choose', 'nutrifrais' ); ?></a></div></div>
+    <div class="card"><div class="pad"><h3 class="text-xl font-bold">7 <?php esc_html_e( 'Days', 'nutrifrais' ); ?></h3><p><?php esc_html_e( 'One week of mindful eating.', 'nutrifrais' ); ?></p><a class="btn btn-primary" href="<?php echo esc_url( site_url('/plans') ); ?>"><?php esc_html_e( 'Choose', 'nutrifrais' ); ?></a></div></div>
+    <div class="card"><div class="pad"><h3 class="text-xl font-bold">14 <?php esc_html_e( 'Days', 'nutrifrais' ); ?></h3><p><?php esc_html_e( 'Deeper transformation & habits.', 'nutrifrais' ); ?></p><a class="btn btn-primary" href="<?php echo esc_url( site_url('/plans') ); ?>"><?php esc_html_e( 'Choose', 'nutrifrais' ); ?></a></div></div>
   </div>
 </section>
 
-<section style="margin:20px 0;">
+<section class="max-w-screen-xl mx-auto px-4 mb-10">
   <div class="card"><div class="pad">
     <h2><?php esc_html_e( 'AI Nutrition Assistant', 'nutrifrais' ); ?></h2>
     <p><?php esc_html_e( 'Ask anything about nutrition — we’ll connect your preferences and goals to create smart menus. (Placeholder UI)', 'nutrifrais' ); ?></p>
@@ -40,4 +40,3 @@ get_header(); ?>
 </section>
 
 <?php get_footer();
-

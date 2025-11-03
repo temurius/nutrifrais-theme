@@ -60,10 +60,17 @@ add_action( 'widgets_init', function () {
 
 // Assets
 add_action( 'wp_enqueue_scripts', function () {
-    wp_enqueue_style( 'nutrifrais-style', get_stylesheet_uri(), [], NUTRIFRAIS_THEME_VERSION );
-    wp_enqueue_script( 'nutrifrais-main', get_template_directory_uri() . '/assets/js/main.js', [ 'jquery' ], NUTRIFRAIS_THEME_VERSION, true );
+    // Tailwind via CDN for rapid theming
+    wp_enqueue_script( 'nutrifrais-tailwind', 'https://cdn.tailwindcss.com', [], null, false );
+    $tw_config = 'tailwind.config = { theme: { extend: { colors: { nf: { green: "#2dbf7a", dark: "#189b5f", leaf: "#9be4c3", slate: "#24323f" } } } } };';
+    wp_add_inline_script( 'nutrifrais-tailwind', $tw_config, 'before' );
 
-    // Localize for AJAX cart count updates
+    // Base stylesheet and WooCommerce overrides
+    wp_enqueue_style( 'nutrifrais-style', get_stylesheet_uri(), [], NUTRIFRAIS_THEME_VERSION );
+    wp_enqueue_style( 'nutrifrais-woo', get_template_directory_uri() . '/assets/css/woo.css', [ 'nutrifrais-style' ], NUTRIFRAIS_THEME_VERSION );
+
+    // Theme JS
+    wp_enqueue_script( 'nutrifrais-main', get_template_directory_uri() . '/assets/js/main.js', [ 'jquery' ], NUTRIFRAIS_THEME_VERSION, true );
     wp_localize_script( 'nutrifrais-main', 'Nutrifrais', [
         'ajaxUrl' => admin_url( 'admin-ajax.php' ),
         'i18n'    => [ 'added_to_cart' => __( 'Added to cart', 'nutrifrais' ) ],
