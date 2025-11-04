@@ -60,11 +60,6 @@ add_action( 'widgets_init', function () {
 
 // Assets
 add_action( 'wp_enqueue_scripts', function () {
-    // Tailwind via CDN for rapid theming
-    wp_enqueue_script( 'nutrifrais-tailwind', 'https://cdn.tailwindcss.com', [], null, false );
-    $tw_config = 'tailwind.config = { theme: { extend: { colors: { nf: { green: "#2dbf7a", dark: "#189b5f", leaf: "#9be4c3", slate: "#24323f" } } } } };';
-    wp_add_inline_script( 'nutrifrais-tailwind', $tw_config, 'before' );
-
     // Base stylesheet and WooCommerce overrides
     wp_enqueue_style( 'nutrifrais-style', get_stylesheet_uri(), [], NUTRIFRAIS_THEME_VERSION );
     wp_enqueue_style( 'nutrifrais-woo', get_template_directory_uri() . '/assets/css/woo.css', [ 'nutrifrais-style' ], NUTRIFRAIS_THEME_VERSION );
@@ -76,6 +71,12 @@ add_action( 'wp_enqueue_scripts', function () {
         'i18n'    => [ 'added_to_cart' => __( 'Added to cart', 'nutrifrais' ) ],
     ] );
 } );
+
+// Tailwind via CDN: emit in head for reliable init
+add_action( 'wp_head', function () {
+    echo '<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>' . "\n";
+    echo '<script>tailwind.config = { theme: { extend: { colors: { nf: { green: "#2dbf7a", dark: "#189b5f", leaf: "#9be4c3", slate: "#24323f" } } } } };</script>' . "\n";
+}, 1 );
 
 // Body classes helper
 add_filter( 'body_class', function ( $classes ) {
