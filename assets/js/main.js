@@ -31,4 +31,31 @@
       $submenu.toggleClass('hidden');
     }
   });
+
+  // Quick View: open modal and fetch content
+  $(document).on('click', '.nf-quick-view', function(){
+    var id = $(this).data('product-id');
+    var $ov = $('#nf-qv-overlay');
+    var $content = $('#nf-qv-content');
+    $content.html('<div style="padding:20px">Loading...</div>');
+    $ov.removeClass('hidden');
+    $.get(Nutrifrais.ajaxUrl, { action: 'nf_quick_view', product_id: id })
+      .done(function(res){ if(res && res.success && res.data && res.data.html){ $content.html(res.data.html); } else { $content.html('<div style="padding:20px">Error</div>'); } })
+      .fail(function(){ $content.html('<div style="padding:20px">Error</div>'); });
+  });
+  $(document).on('click', '.nf-modal-backdrop, .nf-modal-close', function(){
+    $('#nf-qv-overlay').addClass('hidden');
+  });
+  $(document).on('keydown', function(e){ if(e.key === 'Escape'){ $('#nf-qv-overlay').addClass('hidden'); } });
+
+  // Calorie calculator submit
+  $(document).on('click', '#nf-calc-run', function(){
+    var $f = $('#nf-calc-form');
+    var data = $f.serializeArray().reduce(function(acc, cur){ acc[cur.name] = cur.value; return acc; }, {});
+    var $out = $('#nf-calc-result .pad');
+    $out.html('<p>Calculating...</p>');
+    $.post(Nutrifrais.ajaxUrl, $.extend({ action:'nf_calculate_plan' }, data))
+      .done(function(res){ if(res && res.success){ $out.html(res.data.html); } else { $out.html('<p>Unable to calculate.</p>'); } })
+      .fail(function(){ $out.html('<p>Unable to calculate.</p>'); });
+  });
 })(jQuery);

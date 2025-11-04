@@ -91,3 +91,18 @@ a:hover { text-decoration: underline; }
 .products { display:grid; grid-template-columns: repeat(1, minmax(0,1fr)); gap: 20px; }
 @media (min-width: 640px) { .products { grid-template-columns: repeat(2, minmax(0,1fr)); } }
 @media (min-width: 1024px) { .products { grid-template-columns: repeat(4, minmax(0,1fr)); } }
+
+/* Modal (Quick View) */
+.nf-modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: 9999; }
+.nf-modal:not(.hidden) { display: flex; }
+.nf-modal-backdrop { position:absolute; inset:0; background: rgba(15,27,36,0.55); }
+.nf-modal-panel { position:relative; background:#fff; border-radius: var(--nf-radius); box-shadow: var(--nf-shadow); width:min(900px, 96vw); max-height: 90vh; overflow:auto; }
+.nf-modal-close { position:absolute; right:10px; top:8px; background:transparent; border:0; font-size:26px; line-height:1; cursor:pointer; color:#6b7a88; }
+.qv { display:grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.qv-img { width:100%; height:auto; display:block; }
+.qv-body { padding: 16px; }
+.qv-title { margin:0 0 6px; }
+.qv-price { font-weight:700; color: var(--nf-green); margin-bottom: 8px; }
+.qv-nutri { list-style:none; padding:0; margin:0 0 10px; display:flex; gap:10px; flex-wrap:wrap; }
+.qv-nutri li { background:#f4f7f9; border-radius:8px; padding:6px 8px; font-size:12px; }
+.qv-actions .button { width:100%; }

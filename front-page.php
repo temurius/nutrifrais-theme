@@ -5,6 +5,13 @@
  */
 get_header(); ?>
 
+<?php
+  $slider_sc = get_theme_mod('nf_slider_shortcode');
+  if ( $slider_sc ) {
+    echo '<section class="mb-6">' . do_shortcode( $slider_sc ) . '</section>';
+  }
+?>
+
 <section class="hero card mt-5 mb-5">
   <div class="pad">
     <span class="badge"><?php esc_html_e( 'Bio & Local', 'nutrifrais' ); ?></span>
@@ -15,6 +22,13 @@ get_header(); ?>
       <a class="btn btn-secondary" href="<?php echo esc_url( site_url('/plans') ); ?>"><?php esc_html_e( 'See Plans', 'nutrifrais' ); ?></a>
     </div>
   </div>
+</section>
+
+<section class="max-w-screen-xl mx-auto px-4 mb-8">
+  <h2 class="text-2xl font-bold mb-3"><?php esc_html_e( 'Find Your Calories & Macros', 'nutrifrais' ); ?></h2>
+  <?php echo do_shortcode('[nutrifrais_calculator]'); ?>
+  <p class="text-sm text-slate-500 mt-2"><?php esc_html_e( 'Use this to discover recommended daily calories/macros and see meals matched to your target.', 'nutrifrais' ); ?></p>
+  <hr class="my-4" />
 </section>
 
 <section class="max-w-screen-xl mx-auto px-4 mb-8">
